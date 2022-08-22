@@ -170,7 +170,7 @@ html {
     position: relative;
     margin-top: 46.5px;
     padding-top: 50%;
-    background: url(./assets/img/chicago.JPG) top center / cover no-repeat;
+    background: url(../img/chicago.JPG) top center / cover no-repeat;
 }
 
 #silder .text-content {
