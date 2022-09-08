@@ -30,6 +30,8 @@ html {
     display: inline-block;
     margin-top: 15px;
     border: none;
+    text-align: center;
+    -webkit-appearance: none;
 }
 
 .btn:hover {
@@ -44,6 +46,10 @@ html {
 
 .mt-16 {
     margin-top: 16px !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;
 }
 
 .row {
@@ -82,7 +88,7 @@ html {
 }
 
 #header {
-    height: 46.5px;
+    height: 46px;
     background-color: #000;
     position: fixed;
     top: 0;
@@ -149,11 +155,23 @@ html {
     line-height: 38.5px;
 }
 
-#header .search-button {
-    float: right;
-    cursor: pointer;
+.mobile-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
 }
 
+#header .search-button,
+.mobile-menu-btn {
+    float: right;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#header .menu-icon,
 #header .search-icon {
     color: #fff;
     font-size: 20px;
@@ -161,16 +179,25 @@ html {
     padding: 0 21px;
 }
 
-#header .search-icon:hover {
+#header .search-icon:hover{
     background-color: #f44336;
     display: block;
+}
+
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+    display: block;
+}
+
+#header .mobile-menu-btn:hover .menu-icon {
+    color: #000;
 }
 
 #silder {
     position: relative;
     margin-top: 46.5px;
     padding-top: 50%;
-    background: url(/assets/img/chicago.JPG) top center / cover no-repeat;
+    background: url(../img/chicago.JPG) top center / cover no-repeat;
 }
 
 #silder .text-content {
@@ -179,6 +206,7 @@ html {
     color: #fff;
     width: 100%;
     text-align: center;
+    text-shadow: 0 0 1px #000;
 }
 
 #silder .text-heading{
@@ -194,9 +222,12 @@ html {
 
 #content .content-section {
     width: 800px;
+    max-width: 100%;
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 #content .section-heading {
@@ -222,7 +253,7 @@ html {
 }
 
 #content .member-list {
-    margin-top: 47px;
+    margin-top: 31px;
     overflow: hidden;
 }
 
@@ -273,7 +304,7 @@ html {
 }
 
 .place-list {
-    margin-top: 33px;
+    margin-top: 17px;
     overflow: hidden;
 }
 
@@ -314,6 +345,15 @@ html {
 .contact-info {
     line-height: 1.5;
     font-size: 18px;
+}
+
+.contact-info a {
+    color: #1800e5;
+    opacity: 0.7;
+}
+
+.contact-info a:hover {
+    opacity: 1;
 }
 
 .contact-info i[class*="ti-"] {

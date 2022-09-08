@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="assets/fonts/themify-icons-font/themify-icons/themify-icons.css"
     />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
   </head>
 
   <body>
@@ -53,6 +54,10 @@
         <div class="search-button">
           <i class="search-icon ti-search"></i>
         </div>
+
+        <div id="mobile-menu" class="mobile-menu-btn">
+          <i class="menu-icon ti-menu"></i>
+        </div>
         <!-- end search button -->
       </div>
 
@@ -84,7 +89,7 @@
             ea commodo consequat.
           </p>
           <div class="member-list">
-            <div class="col col-third text-center">
+            <div class="col col-third s-col-full mt-32 text-center">
               <p class="member-name">Name</p>
               <img
                 src="assets/img/band/bandmember.jpg"
@@ -92,7 +97,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center">
+            <div class="col col-third s-col-full mt-32 text-center">
               <p class="member-name">Name</p>
               <img
                 src="assets/img/band/bandmember.jpg"
@@ -100,7 +105,7 @@
                 class="member-img"
               />
             </div>
-            <div class="col col-third text-center">
+            <div class="col col-third s-col-full mt-32 text-center">
               <p class="member-name">Name</p>
               <img
                 src="assets/img/band/bandmember.jpg"
@@ -128,7 +133,7 @@
             </ul>
             <!-- Place -->
             <div class="row place-list">
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/places/new_york.JPG.jpg"
                   alt="New York"
@@ -140,11 +145,11 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="btn">Buy Tickets</a>
+                  <a href="#" class="btn s-full-width">Buy Tickets</a>
                 </div>
               </div>
 
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/places/pa_ris.jpg"
                   alt="Paris"
@@ -156,11 +161,11 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="btn">Buy Tickets</a>
+                  <a href="#" class="btn s-full-width">Buy Tickets</a>
                 </div>
               </div>
 
-              <div class="col col-third">
+              <div class="col col-third s-col-full mt-16">
                 <img
                   src="./assets/img/places/san_fran.jpg"
                   alt="San Francisco"
@@ -172,7 +177,7 @@
                   <p class="place-description">
                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                   </p>
-                  <a href="#" class="btn">Buy Tickets</a>
+                  <a href="#" class="btn s-full-width">Buy Tickets</a>
                 </div>
               </div>
             </div>
@@ -184,15 +189,21 @@
           <p class="section-sub-heading">Fan? Drop a note!</p>
 
           <div class="row contact-content">
-            <div class="col col-half contact-info">
+            <div class="col col-half s-col-full contact-info">
               <p><i class="ti-location-pin"></i>Chicago, US</p>
-              <p><i class="ti-mobile"></i>Phone: +00 151515</p>
-              <p><i class="ti-email"></i>Email: mail@mail.com</p>
+              <p>
+                <i class="ti-mobile"></i>Phone:
+                <a href="tel:+00 151515">+00 151515</a>
+              </p>
+              <p>
+                <i class="ti-email"></i>Email:
+                <a href="mailto:mail@mail.com">mail@mail.com</a>
+              </p>
             </div>
-            <div class="col col-half contact-form">
+            <div class="col col-half s-col-full contact-form">
               <form action="">
                 <div class="row">
-                  <div class="col col-half">
+                  <div class="col col-half s-col-full s-mt-8">
                     <input
                       type="text"
                       name=""
@@ -202,7 +213,7 @@
                       class="form-control"
                     />
                   </div>
-                  <div class="col col-half">
+                  <div class="col col-half s-col-full s-mt-8">
                     <input
                       type="email"
                       name=""
@@ -226,7 +237,7 @@
                   </div>
                 </div>
                 <input
-                  class="btn pull-right mt-16"
+                  class="contact-submit-btn btn pull-right s-full-width"
                   type="submit"
                   value="SEND"
                 />
@@ -251,5 +262,36 @@
         <p class="copyright">Powered by <a href="">w3.css</a></p>
       </div>
     </div>
+
+    <script>
+      var header = document.getElementById("header");
+      var mobileMenu = document.getElementById("mobile-menu");
+      var headerHeight = header.clientHeight;
+
+      mobileMenu.onclick = function () {
+        var isClosed = header.clientHeight === headerHeight;
+        if (isClosed) {
+          header.style.height = "auto";
+        } else {
+          header.style.height = null;
+        }
+      };
+
+      var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+      for (var i = 0; i < menuItems.length; i++) {
+        var menuItem = menuItems[i];
+
+        menuItem.onclick = function () {
+          var isParentMenu =
+            this.nextElementSibling &&
+            this.nextElementSibling.classList.contains("subnav");
+          if (isParentMenu) {
+            event.preventDefault();
+          } else {
+            header.style.height = null;
+          }
+        };
+      }
+    </script>
   </body>
 </html>
